@@ -59,7 +59,7 @@ raspi-gpio set 16 op pn dh #enable DSP
 sleep 2
 raspi-gpio set 4 op pn dl #enable amplifier
 ```
-coppy asound.conf to /etc/
+copy asound.conf to /etc/
 ```
 sudo cp asound.conf  /etc
 ```
