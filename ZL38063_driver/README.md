@@ -1,4 +1,7 @@
-# **SaraEyebuild**  
+# **SaraKIt audio ZL38063 driver build **  
+This is upgraded and modified driver for ZL38063 compatible with current kernel(5.10) releases 
+
+# *SaraKIt audio ZL38063 driver build instructions*  
 clone and run rpi-soure https://github.com/notro/rpi-source
 ```
 cd ~/linux
