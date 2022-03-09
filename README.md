@@ -1,4 +1,4 @@
-# **SaraKit**  
+# **SaraKIT**  
 this Repo is set of drivers/tools/samples for SaraKit 
 
 # *ZL38063_driver* 
