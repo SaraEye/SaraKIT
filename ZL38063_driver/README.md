@@ -1,7 +1,7 @@
 # **SaraKIT audio ZL38063 driver build **  
 This is upgraded and modified driver for ZL38063 compatible with current kernel(5.10) releases 
 
-# SaraKIt audio ZL38063 driver build instructions  
+# SaraKIT audio ZL38063 driver build instructions  
 Install rpi-soure https://github.com/RPi-Distro/rpi-source
 ```
 cd ~/linux
