@@ -1,8 +1,8 @@
 # **SaraKIt audio ZL38063 driver build **  
 This is upgraded and modified driver for ZL38063 compatible with current kernel(5.10) releases 
 
-# *SaraKIt audio ZL38063 driver build instructions*  
-clone and run rpi-soure https://github.com/notro/rpi-source
+# SaraKIt audio ZL38063 driver build instructions  
+clone and run rpi-soure https://github.com/RPi-Distro/rpi-source
 ```
 cd ~/linux
 make oldconfig && make prepare && make -j4
@@ -30,43 +30,27 @@ dtparam=spi=on
 
 comment:
 #dtparam=audio=on
-#dtoverlay=ZL38063
-
-change from #dtoverlay=spi0-1cs,cs0_pin=7 to: 
-dtoverlay=spi0-2cs
-
-//motor spi will be changed to spi0.1 need to fix in wiringpi
-
 
 add:
+dtoverlay=spi0-2cs
 dtoverlay=microsemi-spi-overlay
 dtoverlay=microsemi-spi-multi-tw-overlay
 dtoverlay=microsemi-dac-overlay
 ```
-install overlays(dtbo) in /boot/overlays
-
-go to vproc_sdk/libs and install modules 
+from vproc_sdk/libs install overlays(dtbo) in /boot/overlays
 ```
-sudo mkdir /lib/modules/5.10.63-v8+/microsemi
-sudo install -m 0755 ./*.ko   /lib/modules/5.10.63-v8+/microsemi/
-sudo install -m 0755 ./lib/modules/5.10.63-v8+/extra/*.ko   /lib/modules/5.10.63-v8+/microsemi/
-
-```
-in /etc/modules add lines:
-```
-hbi
-snd-soc-zl380xx
-snd-soc-microsemi-dac
+sudo install -m 0755 ./*.dtbo   /boot/overlays
 ```
 
-or manually insmod modules:
+from vproc_sdk/libs install modules replace
 ```
-sudo insmod hbi.ko
-sudo insmod snd-soc-zl380xx.ko
-sudo insmod snd-soc-microsemi-dac.ko
+sudo mkdir /lib/modules/5.10.63-v8+/sarakit
+sudo install -m 0755 ./*.ko   /lib/modules/5.10.63-v8+/sarakit/
+sudo install -m 0755 ./lib/modules/5.10.63-v8+/extra/*.ko   /lib/modules/5.10.63-v8+/sarakit/
+
 ```
 
-aplay should show device 
+after reboot aplay should show device 
 ```
 $ aplay -l
 ```
