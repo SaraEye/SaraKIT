@@ -21,7 +21,7 @@ $ make hbilnx
 ```
 all modules and overlays will be in libs dir
 
-change /boot/config as is in vproc_sdk/sample_config.txt most important
+change /boot/config.txt as is in vproc_sdk/sample_config.txt most important
 ```
 uncomment:
 dtparam=i2c_arm=on
@@ -42,14 +42,27 @@ from vproc_sdk/libs install overlays(dtbo) in /boot/overlays
 sudo install -m 0755 ./*.dtbo   /boot/overlays
 ```
 
-from vproc_sdk/libs install modules replace
+from vproc_sdk/libs install modules replace 5.10.63-v8+ by your kernel version
 ```
 sudo mkdir /lib/modules/5.10.63-v8+/sarakit
 sudo install -m 0755 ./*.ko   /lib/modules/5.10.63-v8+/sarakit/
 sudo install -m 0755 ./lib/modules/5.10.63-v8+/extra/*.ko   /lib/modules/5.10.63-v8+/sarakit/
 
 ```
-
+in /etc/rc.local add DSP and amplifier delayed startup script to eliminate POP effect
+```
+raspi-gpio set 4 op pn dh #disable class D amplifier
+sleep 2 
+raspi-gpio set 16 op pn dl #reset DSP processor
+sleep 2
+raspi-gpio set 16 op pn dh #enable DSP
+sleep 2
+raspi-gpio set 4 op pn dl #enable amplifier
+```
+coppy asound.conf to /etc/
+```
+sudo cp asound.conf  /etc
+```
 after reboot aplay should show device 
 ```
 $ aplay -l
@@ -57,7 +70,7 @@ $ aplay -l
 
 for testing
 ```
-aplay -f S16_LE -r 16000 -c2 -Dhw:0,0 song.wav
-arecord -d5 -f S16_LE -r 16000 -Dhw:0,0 -c2 recorded.wav
+aplay -f S16_LE -r 16000 -c2 -Dplug:dmixed song.wav
+arecord -d5 -f S16_LE -r 16000 -Dplug:dsnooped -c2 recorded.wav
 ```
 
