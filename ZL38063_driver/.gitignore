@@ -1,0 +1,10 @@
+*.o
+*.o.cmd
+*.cmd
+*.mod
+*.o.d
+*.mod.c
+*.ko
+*.bin
+*.o_shipped
+vproc_sdk/libs/**

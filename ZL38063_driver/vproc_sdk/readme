@@ -1,0 +1,30 @@
+This is readme , a first hand document, for Gen SDK describes version information and documentation place holder.
+
+The current Gen SDK  currently has following sub-directories and files.
+
+- config.mk - defines all build options to compile-time variables
+
+- doxygen.mk - Doxygen makefile
+
+- License.txt - MIT licence
+
+- Makefile - Master makefile. before using this set relevant build time environment variables in Makefile.globals
+
+- Makefile.globals - container for all build options. user can make changes here to mention current system configuration.
+                   - Make sure to set KSRC as per where to find kernel headers or compiled kernel source
+                   - If cross-compiling the SDK set the CROSS_COMPILE accordingly to where to fing the compiler to use
+                   - Set ARCH as per the architecture of the Microcontroller
+                    (See ZLS38100 SDK user's guide for more info) 
+
+-> docs - contains documentation on Generic SDK. Refer to ZLS38100_SDK_USer_Guide
+
+-> driver
+    Contains an Generic HBI driver for all microsemi vproc family of devices. Behavior of the driver controlled by setting releavant options in makefile.globals.
+    Refer to ZLS38100_SDK_USer_Guide for overview of design and approach
+
+-> include
+
+-> lnxdriver
+    Contains HBI user and kernel space driver for linux platform. refer to ZLS38100_SDK_USer_Guide for overview of its features and usage
+
+-> platform directory - contains platform specific drivers, and in particular case documentation for the platform

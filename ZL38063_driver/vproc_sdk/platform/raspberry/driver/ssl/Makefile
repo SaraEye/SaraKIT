@@ -1,0 +1,21 @@
+include $(ROOTDIR)/Makefile.globals
+include $(ROOTDIR)/config.mk
+
+LOCAL_PWD=$(ROOTDIR)/platform/$(PLATFORM)/driver/ssl
+
+always-y := ssl_port.o
+
+lib-y := hal_port.o
+
+lib-y += ssl_port.o
+
+all:help
+	make -C $(KSRC) M=$(LOCAL_PWD)
+	mv ssl_port.o $(INSTALL_LIB_PATH)/ssl_port.o_shipped
+	mv .ssl_port.o.cmd $(INSTALL_LIB_PATH)/.ssl_port.o.cmd
+
+help:
+	@echo "$(VPROC_DEV_BUS)="$(VPROC_DEV_BUS)
+
+clean:
+	rm -rf   *.o *.ko .*cmd *.mod.c .tmp_versions modules.order Module.symvers *.a ../*.o ../*.mod.* ../.*cmd
