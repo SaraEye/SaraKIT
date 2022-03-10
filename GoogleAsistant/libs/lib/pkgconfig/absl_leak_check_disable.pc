@@ -1,0 +1,13 @@
+prefix=${pcfiledir}/../..
+
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: absl_leak_check_disable
+Description: Abseil leak_check_disable library
+URL: https://abseil.io/
+Version: 20211102
+Libs: -L"${libdir}"  -labsl_leak_check_disable
+Requires: 
+Cflags: -I"${includedir}" -DNOMINMAX
