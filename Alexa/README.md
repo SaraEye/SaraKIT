@@ -1,5 +1,5 @@
 ### Alexa in SaraKIT
-this is modified repo of AVS with embedded Porcupine keyword detector with prebuilt portaudio.
+this is modified repo of avs-device-sdk with embedded Porcupine keyword detector and prebuilt portaudio.
 
 ### Register an AVS device:
 Before you can use the SDK, you must register an AVS device on the Amazon developer portal by following the instructions on [Register an AVS Product and Create a Security Profile](https://developer.amazon.com/en-US/docs/alexa/alexa-voice-service/register-a-product-with-avs.html).
@@ -9,11 +9,10 @@ Save your config.json file somewhere accessible. You need to use it later in thi
 ### SaraKIT build Amazon Alexa sample:
 Clone repository to /home/pi/
 
-'''
-mkdir install
-mkdir build && cd build
-
-'''
+```
+mkdir install build && cd build
+```
+```
  cmake ../AVS \
  -DGSTREAMER_MEDIA_PLAYER=ON \
  -DPORTAUDIO=ON \
@@ -24,18 +23,22 @@ mkdir build && cd build
  -DPORCUPINE_KEY_WORD_DETECTOR_INCLUDE_DIR=/home/pi/saraKIT/third-party/porcupine/include \
  -DCMAKE_INSTALL_PREFIX=../install \
  -DBUILD_TESTING=OFF 
- 
+ ```
+ ```
+ make -j4 &&make install
+ ```
  ### Set up your SDK configuration file:
  go to AVS\tools\Install and run
- '''
+```
   ./genConfig.sh config.json 12345 \
  /home/pi/saraKIT/Alexa/db \
  /home/pi/saraKIT/Alexa/AVS \
  /home/pi/saraKIT/Alexa/build/Integration/AlexaClientSDKConfig.json \
  -DSDK_CONFIG_MANUFACTURER_NAME="saraKIT" \
  -DSDK_CONFIG_DEVICE_DESCRIPTION="saraKIT"
- '''
+```
  
  ### run sample:
-  PA_ALSA_PLUGHW=1 ./SampleApp ./AlexaClientSDKConfig.json $HOME/alexa2/third-party/porcupine DEBUG9
- 
+ ```
+  PA_ALSA_PLUGHW=1 ./SampleApp ./AlexaClientSDKConfig.json /home/pi/saraKIT/third-party/porcupine DEBUG9
+ ```
