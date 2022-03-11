@@ -1,4 +1,4 @@
-### Saound Locator example
+### Sound Locator example
 This sample shows how to get sound location info from audio.
 
 ### Build and run
