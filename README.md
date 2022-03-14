@@ -18,3 +18,6 @@ directory contains sample aplication of MNN based Face detection [Instllation gu
 
 # Depth
 directory contains Opencv example of stereo image matching [Use guide](https://sarakit.saraai.com/example-of-use/softwareex/depth) 
+
+# Voice Command
+directory contains sample of voice command parser [Instllation guide](https://sarakit.saraai.com/example-of-use/softwareex/voice-command) 
