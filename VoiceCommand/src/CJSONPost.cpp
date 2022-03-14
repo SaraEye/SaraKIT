@@ -27,7 +27,6 @@ std::string CJSONPost::send(std::string jsonstr)
     std::string streamdata = "";
     if (curl)
     {
-        //"https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBS3soobgqjBCAxT3SSmSO41WI35RsYfm0"
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonstr.c_str());
