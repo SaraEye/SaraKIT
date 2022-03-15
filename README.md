@@ -27,3 +27,6 @@ directory contains Python example of remote motors controll  [Use guide](https:/
 
 # Windmill
 directory contains C++ example of motors controll [Use guide](https://sarakit.saraai.com/example-of-use/hardwarex/windmill-bldg-foc-demo) 
+
+# LineFollower
+directory contains simple Example of Python LineFollower [Use guide](https://sarakit.saraai.com/example-of-use/hardwarex/line-follower) 
