@@ -1,16 +1,12 @@
-### Saound Locator example
-This sample shows how to get sound location info from audio.
+### Motor control example
+This sample we shows how to control motor from C++
 
 ### Build and run
-in repository we prepared prebuild audio interface library. At first you need install it
-```
-./install.sh
-```
-next go to src and build project
+go to Windmill/src and build project
 ```
 make
 ```
-for now you can run sample which print information of currend loudest sound direction from 0-360°
+now you can run sample app. The engine will accelerate cyclically from 0-100%
 ```
-sudo ./soundLocator 
+./windmill
 ```
