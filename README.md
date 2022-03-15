@@ -21,3 +21,9 @@ directory contains Opencv example of stereo image matching [Use guide](https://s
 
 # Voice Command
 directory contains sample of voice command parser [Instllation guide](https://sarakit.saraai.com/example-of-use/softwareex/voice-command) 
+
+# RCcar
+directory contains Python example of remote motors controll  [Use guide](https://sarakit.saraai.com/example-of-use/hardwarex/rc-smartphone-car) 
+
+# Windmill
+directory contains C++ example of motors controll [Use guide](https://sarakit.saraai.com/example-of-use/hardwarex/windmill-bldg-foc-demo) 
