@@ -6,14 +6,12 @@
 int main(){
 
     tracker_init();
+    
     while(1){
-        for(uchar speed=10;speed<100;speed+=10){
-            std::cout<<(int)speed<<std::endl;
-            for(int steps=0;steps<100;speed+=1){
-                controlMotor(1000,0,50,speed,0,1);
-                usleep(100);
-            }
-
+       for(uchar speed=0;speed<110;speed+=10){
+                std::cout<<(int)speed<<std::endl;
+                controlSpeed(1,50,speed);
+                sleep(10);
         }
     }
     return 1;

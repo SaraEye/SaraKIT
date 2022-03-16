@@ -10,21 +10,18 @@ spi.mode = 0b01
 spi.max_speed_hz = 1000000
 
 
-def setSpeed(speed,motor):
-
-    isRelative = 0b00100000
+def setSpeed(speed,motor):    
     direction=0
-    steps=speed
+    spd=speed
+    motorId=motor
     torque=50
-    if steps<0:
-        direction=0b00001000
-        steps = steps * -1
+    if speed<0:
+        direction=0b10
+        spd = speed * -1
 	
-    s=(steps>>8)&0x07
-    header=isRelative|motor|direction|s
-    buf1=steps&0xFF
-    cmd=[header, buf1, torque, 100]
-
+    header=0b01110000
+    cfg=motorId|direction
+    cmd = [header, cfg, torque, spd]
     to_send=[]
     to_send.extend(cmd)
     for i in range(0,len(to_send),4):

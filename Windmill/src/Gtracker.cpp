@@ -199,6 +199,20 @@ void controlMotor(int steps,uchar motorId,uchar torque,uchar speed,uchar timerSp
 //    printf("out->%x %x %x %x\n",cmd[0],cmd[1],cmd[2],cmd[3]);
     sendCommand(cmd,false);
 }
+void controlSpeed(uchar motorId,uchar torque,signed char speed){
+    uchar direction=0;
+    uchar spd=speed;
+    if(speed<0){
+        direction=0b10;
+        spd = speed * -1;
+	}
+    uchar header=0b01110000;
+    uchar cfg=motorId|direction;
+    uchar cmd[4] = {header, cfg, torque, spd};
+   // printf("out->%x %x %x %x\n",cmd[0],cmd[1],cmd[2],cmd[3]);
+    sendCommand(cmd,false);
+}
+
 
 void tracker_init(){
     wiringPiSetup();

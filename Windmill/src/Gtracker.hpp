@@ -26,6 +26,6 @@ unsigned int getLastMotionTime();
 electricalMotorPos getMotorPos();
 void setIdleTorque(uchar torqueA,uchar torqueB);
 void controlMotor(int steps,uchar motorId,uchar torque,uchar speed,uchar timerSpeedControl,uchar relative);
-
+void controlSpeed(uchar motorId,uchar torque,signed char speed);
 
 #endif // _TRACKER_H_
